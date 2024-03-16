@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { v4 as uuid } from "uuid";
+ import React, { useState, useEffect } from "react";
+import { v4 as uuid } from "uuid";  //package for unique Id
 import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -13,15 +13,16 @@ function App() {
 
   const addContactHandler = (contact) => {
     console.log(contact);
-    setContacts([...contacts, { id: uuid(), ...contact }]);
+    setContacts([...contacts, { id: uuid(), ...contact }]);  // used to update the new contacts with the previous contact list
+                                                            // '...' it is called the rest operator
   };
 
   const removeContactHandler = (id) => {
-    const newContactList = contacts.filter((contact) => {
-      return contact.id !== id;
-    });
+    const newContactList = contacts.filter((contact) => {  //creates the copy of the contact
+      return contact.id !== id;    // it removes the contact with the id specified by the user
+    }); 
 
-    setContacts(newContactList);
+    setContacts(newContactList); //change the list with the updated state
   };
 
   // useEffect(() => {

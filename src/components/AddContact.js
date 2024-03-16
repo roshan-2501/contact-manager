@@ -7,13 +7,13 @@ class AddContact extends React.Component {
   };
 
   add = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevents refreshing of the page
     if (this.state.name === "" || this.state.email === "") {
       alert("ALl the fields are mandatory!");
       return;
     }
-    this.props.addContactHandler(this.state);
-    this.setState({ name: "", email: "" });
+    this.props.addContactHandler(this.state); // its used to send the state from the child to the parent 
+    this.setState({ name: "", email: "" }); // its used to clear the fields after sending the state to the parent 
   };
   render() {
     return (
